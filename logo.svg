@@ -1,0 +1,17 @@
+<svg width="150" height="30" viewBox="0 0 150 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo Icon -->
+  <g>
+    <rect x="0" y="8" width="4" height="4" fill="#00FFFF"/>
+    <rect x="4" y="4" width="4" height="4" fill="#00FFFF"/>
+    <rect x="8" y="0" width="4" height="4" fill="#00FFFF"/>
+    <rect x="4" y="12" width="4" height="4" fill="#00FFFF"/>
+    <rect x="8" y="8" width="4" height="4" fill="#00FFFF"/>
+    <rect x="12" y="4" width="4" height="4" fill="#00FFFF"/>
+    <rect x="8" y="16" width="4" height="4" fill="#00FFFF"/>
+    <rect x="12" y="12" width="4" height="4" fill="#00FFFF"/>
+    <rect x="16" y="8" width="4" height="4" fill="#00FFFF"/>
+  </g>
+  
+  <!-- Text "blueshift" -->
+  <text x="24" y="20" font-family="monospace, sans-serif" font-size="18" font-weight="bold" fill="white">blueshift</text>
+</svg>
