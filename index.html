@@ -148,7 +148,7 @@
                     <h2 class="text-lg font-semibold text-white mb-4 font-mono uppercase tracking-wider">Vote
                         Distribution</h2>
                     <div class="h-[200px] flex items-center justify-center">
-                        <svg viewBox="0 0 200 200" class="w-48 h-48">
+                        <svg viewBox="0 0 200 200" class="w-32 h-32">
                             <!-- YES slice (98.26%) - almost full circle -->
                             <circle cx="100" cy="100" r="80" fill="none" stroke="#00FFFF" stroke-width="40"
                                 stroke-dasharray="493.6 6.4" stroke-dashoffset="0" transform="rotate(-90 100 100)" />
@@ -187,22 +187,26 @@
                 <div class="glass-card p-6">
                     <h2 class="text-lg font-semibold text-white mb-4 font-mono uppercase tracking-wider">Token
                         Distribution</h2>
-                    <div class="h-[200px] flex items-end justify-around px-8 pb-8">
-                        <!-- CLAIMED bar (52.5%) -->
-                        <div class="flex flex-col items-center flex-1 mx-2">
-                            <div class="w-full bg-[#00FFFF] rounded-t-lg" style="height: 105px;"></div>
-                            <span class="text-xs text-white font-mono mt-2">CLAIMED</span>
-                        </div>
-                        <!-- VOTED bar (52.1%) -->
-                        <div class="flex flex-col items-center flex-1 mx-2">
-                            <div class="w-full bg-[#7B9FFF] rounded-t-lg" style="height: 104px;"></div>
-                            <span class="text-xs text-white font-mono mt-2">VOTED</span>
-                        </div>
-                        <!-- UNCLAIMED bar (47.5%) -->
-                        <div class="flex flex-col items-center flex-1 mx-2">
-                            <div class="w-full bg-[#404040] rounded-t-lg" style="height: 95px;"></div>
-                            <span class="text-xs text-white font-mono mt-2">UNCLAIMED</span>
-                        </div>
+                    <div class="h-[200px] flex items-center justify-center">
+                        <svg viewBox="0 0 300 200" class="w-full h-full">
+                            <!-- Y-axis lines -->
+                            <line x1="40" y1="20" x2="280" y2="20" stroke="#2A2B30" stroke-width="1"/>
+                            <line x1="40" y1="60" x2="280" y2="60" stroke="#2A2B30" stroke-width="1"/>
+                            <line x1="40" y1="100" x2="280" y2="100" stroke="#2A2B30" stroke-width="1"/>
+                            <line x1="40" y1="140" x2="280" y2="140" stroke="#2A2B30" stroke-width="1"/>
+                            
+                            <!-- CLAIMED bar (52.5%) -->
+                            <rect x="60" y="77" width="50" height="63" fill="#00FFFF" rx="4"/>
+                            <text x="85" y="155" text-anchor="middle" fill="#CDD1DB" font-size="10" font-family="monospace">CLAIMED</text>
+                            
+                            <!-- VOTED bar (52.1%) -->
+                            <rect x="125" y="78" width="50" height="62" fill="#7B9FFF" rx="4"/>
+                            <text x="150" y="155" text-anchor="middle" fill="#CDD1DB" font-size="10" font-family="monospace">VOTED</text>
+                            
+                            <!-- UNCLAIMED bar (47.5%) -->
+                            <rect x="190" y="83" width="50" height="57" fill="#4A4A4A" rx="4"/>
+                            <text x="215" y="155" text-anchor="middle" fill="#CDD1DB" font-size="10" font-family="monospace">UNCLAIMED</text>
+                        </svg>
                     </div>
                     <div class="mt-4 space-y-2">
                         <div class="flex items-center justify-between text-sm">
