@@ -44,6 +44,93 @@
     <meta name="twitter:image:height" content="945" />
     <meta name="twitter:image" content="https://gov.blueshift.gg/opengraph-image.png?346f2a4a3e2c7a94" />
     <script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
+    <style>
+        .vote-chart {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .vote-chart:hover {
+            transform: scale(1.05);
+        }
+        
+        .vote-chart circle:nth-child(1) {
+            stroke-dasharray: 431.5 8.5;
+            stroke-dashoffset: 0;
+        }
+        
+        .vote-chart circle:nth-child(2) {
+            stroke-dasharray: 4.6 435.4;
+            stroke-dashoffset: -431.5;
+        }
+        
+        .vote-chart circle:nth-child(3) {
+            stroke-dasharray: 3.0 437.0;
+            stroke-dashoffset: -436.1;
+        }
+        
+        .vote-chart.animated circle:nth-child(1) {
+            animation: drawYes 1s ease-out forwards;
+        }
+        
+        .vote-chart.animated circle:nth-child(2) {
+            animation: drawNo 0.8s ease-out 0.3s forwards;
+        }
+        
+        .vote-chart.animated circle:nth-child(3) {
+            animation: drawAbstain 0.6s ease-out 0.6s forwards;
+        }
+        
+        @keyframes drawYes {
+            0% {
+                stroke-dasharray: 0 440;
+                stroke-dashoffset: 0;
+            }
+            100% {
+                stroke-dasharray: 431.5 8.5;
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        @keyframes drawNo {
+            0% {
+                stroke-dasharray: 0 440;
+                stroke-dashoffset: -431.5;
+            }
+            100% {
+                stroke-dasharray: 4.6 435.4;
+                stroke-dashoffset: -431.5;
+            }
+        }
+        
+        @keyframes drawAbstain {
+            0% {
+                stroke-dasharray: 0 440;
+                stroke-dashoffset: -436.1;
+            }
+            100% {
+                stroke-dasharray: 3.0 437.0;
+                stroke-dashoffset: -436.1;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chart = document.querySelector('.vote-chart');
+            if (chart) {
+                chart.addEventListener('mouseenter', function() {
+                    this.classList.add('animated');
+                });
+                chart.addEventListener('animationend', function(e) {
+                    if (e.target.tagName === 'circle') {
+                        setTimeout(() => {
+                            this.classList.remove('animated');
+                        }, 100);
+                    }
+                });
+            }
+        });
+    </script>
 </head>
 
 <body class="font-sans min-h-screen flex flex-col">
@@ -148,16 +235,13 @@
                     <h2 class="text-lg font-semibold text-white mb-4 font-mono uppercase tracking-wider">Vote
                         Distribution</h2>
                     <div class="h-[200px] flex items-center justify-center">
-                        <svg viewBox="0 0 200 200" class="w-32 h-32">
+                        <svg viewBox="0 0 200 200" class="w-40 h-40 vote-chart">
                             <!-- YES slice (98.26%) - almost full circle -->
-                            <circle cx="100" cy="100" r="80" fill="none" stroke="#00FFFF" stroke-width="40"
-                                stroke-dasharray="493.6 6.4" stroke-dashoffset="0" transform="rotate(-90 100 100)" />
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="#00FFFF" stroke-width="25" transform="rotate(-90 100 100)" />
                             <!-- NO slice (1.04%) - small slice -->
-                            <circle cx="100" cy="100" r="80" fill="none" stroke="#FFAD66" stroke-width="40"
-                                stroke-dasharray="5.2 494.8" stroke-dashoffset="-493.6" transform="rotate(-90 100 100)" />
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="#FFAD66" stroke-width="25" transform="rotate(-90 100 100)" />
                             <!-- ABSTAIN slice (0.68%) - tiny slice -->
-                            <circle cx="100" cy="100" r="80" fill="none" stroke="#6B7280" stroke-width="40"
-                                stroke-dasharray="3.4 496.6" stroke-dashoffset="-498.8" transform="rotate(-90 100 100)" />
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="#6B7280" stroke-width="25" transform="rotate(-90 100 100)" />
                         </svg>
                     </div>
                     <div class="mt-4 space-y-2">
