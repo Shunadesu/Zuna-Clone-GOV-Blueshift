@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass-card {
+    @apply bg-blueshift-gray-900/40 backdrop-blur-sm border border-blueshift-gray-800 rounded-xl;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-blueshift-dark text-white;
+  }
+}
+
+/* Vote Chart Animation */
+.vote-chart {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.vote-chart:hover {
+  transform: scale(1.05);
+}
+
+.vote-chart circle:nth-child(1) {
+  stroke-dasharray: 431.5 8.5;
+  stroke-dashoffset: 0;
+}
+
+.vote-chart circle:nth-child(2) {
+  stroke-dasharray: 4.6 435.4;
+  stroke-dashoffset: -431.5;
+}
+
+.vote-chart circle:nth-child(3) {
+  stroke-dasharray: 3.0 437.0;
+  stroke-dashoffset: -436.1;
+}
+
+.vote-chart.animated circle:nth-child(1) {
+  animation: drawYes 1s ease-out forwards;
+}
+
+.vote-chart.animated circle:nth-child(2) {
+  animation: drawNo 0.8s ease-out 0.3s forwards;
+}
+
+.vote-chart.animated circle:nth-child(3) {
+  animation: drawAbstain 0.6s ease-out 0.6s forwards;
+}
+
+@keyframes drawYes {
+  0% {
+    stroke-dasharray: 0 440;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 431.5 8.5;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawNo {
+  0% {
+    stroke-dasharray: 0 440;
+    stroke-dashoffset: -431.5;
+  }
+  100% {
+    stroke-dasharray: 4.6 435.4;
+    stroke-dashoffset: -431.5;
+  }
+}
+
+@keyframes drawAbstain {
+  0% {
+    stroke-dasharray: 0 440;
+    stroke-dashoffset: -436.1;
+  }
+  100% {
+    stroke-dasharray: 3.0 437.0;
+    stroke-dashoffset: -436.1;
+  }
+}
+
+
